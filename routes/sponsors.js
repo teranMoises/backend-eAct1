@@ -2,6 +2,14 @@ var express = require('express');
 var router = express.Router();
 var sponsorC = require('../controllers/Sponsor.c');
 
+
+/* GET home page. */
+router.get('/home', function(req, res, next) {
+  res.render('sponsorsV', { title: 'teamSponsors' });
+});
+
+
+
 /* GET SPONSORS */
 router.get('/', function(req, res, next) {
     res.send(sponsorC.getSponsors());

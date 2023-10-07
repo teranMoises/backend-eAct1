@@ -2,6 +2,11 @@ var express = require('express');
 var router = express.Router();
 var team_controller = require('../controllers/team.c');
 
+/* GET home page. */
+router.get('/home', function(req, res, next) {
+  res.render('teamV', { title: 'teamHomes' });
+});
+
 
 /* GET Teams */
 router.get('/', function (req, res, next) {

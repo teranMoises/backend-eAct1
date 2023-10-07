@@ -9,6 +9,13 @@ var modalidadController = require("../controllers/modalidadesControllers");
 // });
 
 
+
+/* GET home page. */
+router.get('/home', function(req, res, next) {
+  res.render('modalidades', { title: 'modalidadesHome' });
+});
+
+
 /* GET users listing. */
 router.get('/', function (req, res, next) {
   modalidadController.mostrar()

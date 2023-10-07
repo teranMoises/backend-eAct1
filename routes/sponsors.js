@@ -3,9 +3,9 @@ var router = express.Router();
 var sponsorC = require('../controllers/Sponsor.c');
 
 
-/* GET home page. */
+/* GET homeeeeeee page. */
 router.get('/home', function(req, res, next) {
-  res.render('sponsorsV', { title: 'teamSponsors' });
+  res.render('sponsorsV', { title:sponsorC.getSponsors()});
 });
 
 
@@ -15,6 +15,7 @@ router.get('/', function(req, res, next) {
     res.send(sponsorC.getSponsors());
   });
   
+
 /*GET SPONSORS BY CATHEGORY*/
 
 router.get('/ver-patrocinante/:cate', function(req, res,){

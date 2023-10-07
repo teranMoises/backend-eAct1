@@ -97,10 +97,10 @@ class ModalityModels {
     static quitarCAT(modality, category) {
         return new Promise((resolve, reject) => {
             console.log("en models", modality, category);
-            let iModalidad = modalidadesBD.findIndex(mode => mode.nombre == modality)
+            let iModalidad = modalidadesBD.findIndex(mode => mode.nombre == modality);
             if (iModalidad !== -1) {
                 let arrayCat = modalidadesBD[iModalidad].categorias;
-                let i = arrayCat.findIndex(catName => catName.id == category)
+                let i = arrayCat.findIndex(catName => catName.id == category);
                 if (i == -1) {
                     return reject('No existe la categoría indicada');
                 }

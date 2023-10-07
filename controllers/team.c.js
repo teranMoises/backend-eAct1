@@ -11,8 +11,8 @@ class teamController{
     showTeamsCAT(){
         return savesTeams.showCategory();
     }
-    showCategory(){
-
+    delTeamCAT(cat,team){
+        return savesTeams.delCategory(cat,team);
     }
 }
 var savesTeams = require('../models/teamModel')

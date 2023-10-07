@@ -112,8 +112,17 @@ class teamModelC {
         });
         return categories
     };
-    delCategory() {
-
+    delCategory(idCAT,idTEAM) {
+        console.log(idCAT,idTEAM)
+        let i = teamsOn.findIndex(team => team.ID == idTEAM);
+        if (i == -1) {
+            return 'No existe el equipo indicado';
+        }
+        let iCAT = teamsOn[i].Categorias.findIndex(cat => cat == idCAT);
+        if (iCAT == -1) {
+            return 'No existe la categoría indicada';
+        }
+        return teamsOn[i].Categorias.splice(iCAT, 1);
     };
 }
 

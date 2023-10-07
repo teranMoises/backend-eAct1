@@ -1,4 +1,4 @@
-var ModalityModels = require("../models/modalidadesModels");
+var { ModalityModels } = require("../models/modalidadesModels");
 
 
 class ModalityController {
@@ -13,8 +13,10 @@ class ModalityController {
         })
     }
     static mostrarCAT(modality) {
+        console.log('En mostrarCAT',modality)
         return new Promise((resolve, reject) => {
             let retorno = ModalityModels.verCAT(modality);
+            console.log('En COntroller',retorno);
             if (Array.isArray(retorno)) {
                 resolve(retorno);
             } else {

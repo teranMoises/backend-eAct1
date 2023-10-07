@@ -40,6 +40,7 @@ router.post('/', function (req, res, next) {
 });
 
 router.get('/categorias/:modalidad', function (req, res, next) {
+  console.log('En GET CAT')
   modalidadController.mostrarCAT(req.params.modalidad)
     .then((resultados) => {
       res.send(resultados);

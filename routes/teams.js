@@ -29,7 +29,15 @@ router.post('/', function (req, res, next) {
 
 });
 
-
+/*PUT TEAMS*/
+router.put('/', function (req, res, next) {
+  let reqController = team_controller.putTeam(req.body)
+  if (reqController == "Error: faltan datos") {
+    res.status(400).send(reqController);
+  } else {
+    res.send(reqController);
+  }
+});
 
 /*DELETE TEAMS*/
 router.delete('/delete/:id', function (req, res, next) {

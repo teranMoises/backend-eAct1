@@ -2,8 +2,11 @@ class teamController{
     showTeams(){
         return savesTeams.showTeams(); 
     }
-    addTeam(usuario){
-        return savesTeams.addTeam(usuario);
+    addTeam(equipo){
+        return savesTeams.addTeam(equipo);
+    }
+    putTeam(equipo) {
+        return savesTeams.editTeam(equipo);
     }
     delTeam(id){
         savesTeams.delTeam(id)

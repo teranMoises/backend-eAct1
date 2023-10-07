@@ -14,8 +14,6 @@ let teamsOn = [
 ]
 
 
-
-let found = false
 class teamModelC {
     showTeams() {
         return teamsOn
@@ -62,18 +60,41 @@ class teamModelC {
         }
         return true;
     }
-    addTeam(usuario) {
-        usuario.ID = uuidv4()
-        if (usuario.ID != undefined && usuario.Equipo != undefined && usuario.Integrantes != undefined && usuario.Categorias != undefined) {
-            let val = this.findCATs(usuario.Categorias);
+    addTeam(team) {
+        team.ID = uuidv4()
+        if (team.ID != undefined && team.Equipo != undefined && team.Integrantes != undefined && team.Categorias != undefined) {
+            let val = this.findCATs(team.Categorias);
             console.log(val)
             if (val !== true) {
-                return 'Se ha encontrado un ID inválido: ' + val;
+                return 'Se ha encontrado un ID de categoría inválido: ' + val;
             }
-            teamsOn.push(usuario);
+            teamsOn.push(team);
             return this.showTeams();
         } else {
             //return this.find(usuario.algo)
+            return "Error: faltan datos";
+        }
+    };
+    editTeam(team) {
+        let iEquipo = teamsOn.findIndex(equipo => equipo.ID == team.ID);
+        if (team.ID != undefined && team.Equipo != undefined && team.Integrantes != undefined && team.Categorias != undefined) {
+            if (iEquipo !== -1) {
+                let val = this.findCATs(team.Categorias);
+                if (val !== true) {
+                    return 'Se ha encontrado un ID de categoría inválido: ' + val;
+                }
+                let add = {
+                    ID: team.ID,
+                    Equipo: team.Equipo,
+                    Integrantes: team.Integrantes,
+                    Categorias: team.Categorias
+                }
+                teamsOn[iEquipo] = add;
+                return teamsOn[iEquipo];
+            } else {
+                return 'No existe el equipo indicado: ' + team.ID;
+            }
+        } else {
             return "Error: faltan datos";
         }
     };
@@ -94,8 +115,8 @@ class teamModelC {
                 if (Object.hasOwnProperty.call(cat, 'id')) {
                     if (typeof cat['id'] == "string") {
                         if (!Object.hasOwnProperty.call(categories, cat['id'])) {
-                            categories[cat['id']] = {"nombre": cat.nombre, "equipos": []};
-                        }   
+                            categories[cat['id']] = { "nombre": cat.nombre, "equipos": [] };
+                        }
                     }
                 }
             })
@@ -108,12 +129,12 @@ class teamModelC {
                     categories[catID]['equipos'].push(team);
                 }
             }
-            
+
         });
         return categories
     };
-    delCategory(idCAT,idTEAM) {
-        console.log(idCAT,idTEAM)
+    delCategory(idCAT, idTEAM) {
+        console.log(idCAT, idTEAM)
         let i = teamsOn.findIndex(team => team.ID == idTEAM);
         if (i == -1) {
             return 'No existe el equipo indicado';

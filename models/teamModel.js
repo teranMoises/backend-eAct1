@@ -1,18 +1,25 @@
+const { v4: uuidv4 } = require('uuid');
+
 let teamsOn = [
     {
-        Equipo: "EquipoDinaminta"
-    },
-    {
-        Equipo: "EquipoNenas",
-        ID:123
+        ID:1233,
+        Equipo: "EquipoDinaminta",
+        Integrantes: [
+            {Nombre:"José",Cedula:30786086,Edad:18},
+            {Nombre:"Simón",Cedula:4564654,Edad:20},
+        ]
     },
 ]
+
+
+
 let found = false
 class teamModelC{
     showTeams(){
         return teamsOn
     };
     addTeam(usuario){
+        usuario.ID = uuidv4()
         teamsOn.push(usuario);
     };
     delTeam(uID){
@@ -26,5 +33,7 @@ class teamModelC{
 
     };
 }
+
+
 
 module.exports = new teamModelC;

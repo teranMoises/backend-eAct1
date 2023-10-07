@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
-var team_controller = require('../controllers/team.c')
+var team_controller = require('../controllers/team.c');
+var modalsT = require('../models/teamModel')
+
 
 /* GET Teams */
 router.get('/', function(req, res, next) {
@@ -21,5 +23,4 @@ router.delete('/delete/:id', function(req, res, next) {
   });
 
 module.exports = router;
-
 

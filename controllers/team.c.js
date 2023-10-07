@@ -12,6 +12,5 @@ class teamController{
 
     }
 }
-
 var savesTeams = require('../models/teamModel')
 module.exports = new teamController();

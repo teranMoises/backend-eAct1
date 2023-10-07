@@ -3,12 +3,12 @@ class teamController{
         return savesTeams.showTeams(); 
     }
     addTeam(usuario){
-        savesTeams.addTeam(usuario);
+        return savesTeams.addTeam(usuario);
     }
     delTeam(id){
         savesTeams.delTeam(id)
     }
-    showCathegory(){
+    showCategory(){
 
     }
 }

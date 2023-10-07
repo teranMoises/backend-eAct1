@@ -19,6 +19,9 @@ router.post('/', function (req, res, next) {
 
 });
 
+router.get('/participantes', function (req, res, next) {
+  res.send(team_controller.showTeamsCAT());
+});
 
 /*DELETE TEAMS*/
 router.delete('/delete/:id', function (req, res, next) {

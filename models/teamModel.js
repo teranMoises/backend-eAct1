@@ -20,7 +20,7 @@ class teamModelC {
     showTeams() {
         return teamsOn
     };
-    find(idCAT){
+    find(idCAT) {
         let i1 = -1;
         let i2 = -1;
         let name = "";
@@ -46,15 +46,15 @@ class teamModelC {
                 }
             })
         });
-        return [found,i1,i2,name]
-            
+        return [found, i1, i2, name]
+
     }
-    findCATs(arrCAT){
-        console.log("findCATs",arrCAT)
+    findCATs(arrCAT) {
+        console.log("findCATs", arrCAT)
         for (const catObj of arrCAT) {
             if (typeof catObj == "string") {
                 let returnFind = this.find(catObj);
-                console.log("findCATs FIND",returnFind)
+                console.log("findCATs FIND", returnFind)
                 if (returnFind == false || (Array.isArray(returnFind) && returnFind[0] !== true)) {
                     return catObj;
                 }
@@ -68,7 +68,7 @@ class teamModelC {
             let val = this.findCATs(usuario.Categorias);
             console.log(val)
             if (val !== true) {
-                return 'Se ha encontrado un ID inválido: '+val;
+                return 'Se ha encontrado un ID inválido: ' + val;
             }
             teamsOn.push(usuario);
             return this.showTeams();
@@ -85,7 +85,32 @@ class teamModelC {
         }
     };
     showCategory() {
+        let categories = {};
+        if (modalityBD.length <= 0) {
+            return null;
+        }
+        modalityBD.forEach((mode, indexMode, arreglo) => {
+            mode.categorias.forEach((cat, indexCat, arreglo) => {
+                if (Object.hasOwnProperty.call(cat, 'id')) {
+                    if (typeof cat['id'] == "string") {
+                        if (!Object.hasOwnProperty.call(categories, cat['id'])) {
+                            categories[cat['id']] = {"nombre": cat.nombre, "equipos": []};
+                        }   
+                    }
+                }
+            })
+        });
+        console.log(categories)
 
+        teamsOn.forEach((team, indexMode, arreglo) => {
+            for (const catID of team.Categorias) {
+                if (Object.hasOwnProperty.call(categories, catID)) {
+                    categories[catID]['equipos'].push(team);
+                }
+            }
+            
+        });
+        return categories
     };
     delCategory() {
 

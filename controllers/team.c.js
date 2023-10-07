@@ -8,6 +8,9 @@ class teamController{
     delTeam(id){
         savesTeams.delTeam(id)
     }
+    showTeamsCAT(){
+        return savesTeams.showCategory();
+    }
     showCategory(){
 
     }

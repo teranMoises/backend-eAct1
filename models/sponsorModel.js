@@ -17,7 +17,7 @@ class SponsorModel {
     }
 
     getAllSponsors() {
-        return Object.values(this.sponsors);
+        return this.sponsors;
     }
 }
 

@@ -2,14 +2,11 @@ class SponsorController{
     getSponsors(){
         return sponModl.SponsorModel.getAllSponsors(); 
     }
-    addSponsor(cathegory, sponsor){
-       sponModl.SponsorModel.addSponsor(cathegory,sponsor);
+    addSponsor(category, sponsor){
+       sponModl.SponsorModel.addSponsor(category,sponsor);
     }
-    delTeam(id){
-        savesSponsors.delTeam(id)
-    }
-    showCathegory(){
-
+    byCategory(category){
+        return sponModl.SponsorModel.getSponsors(category)
     }
 }
 var sponModl = require('../models/sponsorModel')

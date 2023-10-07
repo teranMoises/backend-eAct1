@@ -7,6 +7,14 @@ router.get('/', function(req, res, next) {
     res.send(sponsorC.getSponsors());
   });
   
+/*GET SPONSORS BY CATHEGORY*/
+
+router.get('/ver-patrocinante/:cate', function(req, res,){
+    res.send(sponsorC.byCategory(req.params.cate))
+    console.log(req.params.cate)
+});
+
+
   /*POST SPONSORS*/
   router.post('/anadir-patrocinante/:categoria', function(req, res, next) {
     let cate = req.params.categoria;

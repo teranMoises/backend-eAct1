@@ -12,7 +12,26 @@ var modalidadController = require("../controllers/modalidadesControllers");
 
 /* GET home page. */
 router.get('/home', function(req, res, next) {
-  res.render('modalidades', { title: 'modalidadesHome' });
+  res.render('modalidades', { title: 'Ingresar Modadalidades' });
+});
+
+/* POST home page. */
+router.post('/home', function(req, res, next) {
+  console.log('en routes', req.body.nameMOD);
+  let enviarOBJ = {"nombre": req.body.nameMOD};
+  modalidadController.crear(enviarOBJ)
+    .then(
+      (resultados) => {
+        console.info(resultados);
+        res.send(resultados);
+      }
+    )
+    .catch(
+      (error) => {
+        //console.info(error);
+        res.status(400).send(error);
+      }
+    )
 });
 
 

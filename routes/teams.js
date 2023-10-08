@@ -4,7 +4,12 @@ var team_controller = require('../controllers/team.c');
 
 /* GET home page. */
 router.get('/home', function(req, res, next) {
-  res.render('teamV', { title: 'teamHomes' });
+  res.render('teamV', { title: 'teamHomes' , datos: team_controller.showTeams()});
+});
+
+/* POST home page. */
+router.post('/home', function(req, res, next) {
+  res.send(team_controller.showTeams());
 });
 
 

@@ -12,7 +12,7 @@ var modalidadController = require("../controllers/modalidadesControllers");
 
 /* GET home page. */
 router.get('/home', function(req, res, next) {
-  res.render('modalidades', { title: 'Ingresar Modadalidades' });
+  res.render('modalidades', { title: 'Ingresar Modalidades' });
 });
 
 /* POST home page. */

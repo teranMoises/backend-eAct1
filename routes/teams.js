@@ -43,6 +43,7 @@ router.put('/', function (req, res, next) {
 router.delete('/delete/:id', function (req, res, next) {
   let uID = req.params.id
   team_controller.delTeam(uID)
+  res.send(team_controller.showTeams())
 });
 
 /*DELETE CATEGORY OF TEAMS*/

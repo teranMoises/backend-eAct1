@@ -1,5 +1,15 @@
 let modalidadesBD = [
-
+    {
+        nombre: "Modalidad de Ejemplo", 
+        id: "e2927cbc-bcb0-4cbf-be9a-277cbdb98b96", 
+        categorias: [
+            {
+                nombre: "Categoria de Ejemplo",
+                id: "f2f66e25-c1c1-4846-ac15-90ade2053720",
+                reglas: ['Reglas de ejemplo']
+            }
+        ]
+    }
 ];
 
 const { v4: uuidv4 } = require('uuid');

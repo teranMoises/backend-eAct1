@@ -99,7 +99,7 @@ class teamModelC {
         }
     };
     delTeam(uID) {
-        let team = teamsOn.find((team) => team.ID === 123);
+        let team = teamsOn.find((team) => team.ID === uID);
         if (team) {
             found = true;
             teamsOn.splice(teamsOn.indexOf(team), 1);
